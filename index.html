@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shashank Subba Dongol — Computer Science Graduate & Software/Data Engineer</title>
+<meta name="description" content="Portfolio of Shashank Subba Dongol — BSc Computer Science graduate specialising in software development, data engineering and cloud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#fafafa;
+    --surface:rgba(10,10,10,0.035);
+    --surface-strong:rgba(10,10,10,0.06);
+    --border:rgba(10,10,10,0.12);
+    --text:#0a0a0a;
+    --text-dim:#5b5b5b;
+    --text-faint:#8a8a8a;
+    --accent-1:#0a0a0a;
+    --accent-2:#0a0a0a;
+    --accent-grad:#0a0a0a;
+    --on-accent:#ffffff;
+    --good:#0a0a0a;
+    --radius:18px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  section{position:relative;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--accent-1);margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-grad);}
+  .grad-text{
+    font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;
+    color:inherit;letter-spacing:0;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:999px;font-weight:600;font-size:0.95rem;
+    border:1px solid transparent;cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent-grad);color:var(--on-accent);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(10,10,10,.45);}
+  .btn-ghost{background:#fff;border:1.5px solid var(--text);color:var(--text);}
+  .btn-ghost:hover{transform:translateY(-2px);background:var(--surface);}
+  .btn:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;transition:background .3s ease, border-color .3s ease, padding .3s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.82);backdrop-filter:blur(14px);
+    border-bottom-color:var(--border);padding:13px 0;
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-0.02em;}
+  .logo span{color:var(--accent-1);}
+  .nav-links{display:flex;gap:34px;}
+  .nav-links a{
+    font-size:0.92rem;font-weight:500;color:var(--text-dim);
+    position:relative;padding:4px 0;transition:color .2s ease;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;
+    background:var(--accent-1);transition:width .25s ease;
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{width:22px;height:2px;background:var(--text);border-radius:2px;}
+
+  .mobile-menu{
+    position:fixed;inset:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);
+    z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+    opacity:0;visibility:hidden;transition:opacity .3s ease;
+  }
+  .mobile-menu.open{opacity:1;visibility:visible;}
+  .mobile-menu a{font-size:1.4rem;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--text);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding:140px 0 80px;
+    background-image:
+      radial-gradient(circle at 18% 16%, rgba(10,10,10,0.05), transparent 45%),
+      radial-gradient(circle at 88% 78%, rgba(10,10,10,0.04), transparent 45%),
+      linear-gradient(rgba(10,10,10,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,10,10,0.045) 1px, transparent 1px);
+    background-size: auto, auto, 42px 42px, 42px 42px;
+    background-position:0 0,0 0,-1px -1px,-1px -1px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center;}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:20px;}
+  .hero p.lead{font-size:1.08rem;color:var(--text-dim);max-width:520px;margin-bottom:34px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:42px;}
+  .hero-stats{display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-stats div{display:flex;flex-direction:column;}
+  .hero-stats strong{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;}
+  .hero-stats span{font-size:0.8rem;color:var(--text-faint);}
+
+  .hero-photo-wrap{display:flex;justify-content:center;}
+  .hero-photo{
+    width:280px;height:280px;border-radius:28px;
+    border:1px solid var(--border);
+    background:var(--surface);
+    object-fit:cover;object-position:center 20%;
+    box-shadow:0 24px 50px -28px rgba(10,10,10,.55);
+  }
+
+  /* ---------- Section heading ---------- */
+  .section-head{margin-bottom:50px;max-width:640px;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-bottom:14px;}
+  .section-head p{color:var(--text-dim);font-size:1rem;}
+  section.pad{padding:110px 0;}
+  section.pad.tight{padding:90px 0;}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:start;}
+  .about-grid p{color:var(--text-dim);font-size:1.02rem;margin-bottom:16px;}
+  .fact-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;backdrop-filter:blur(8px);
+  }
+  .fact-list li{
+    display:flex;justify-content:space-between;padding:13px 0;font-size:0.92rem;
+    border-bottom:1px solid var(--border);color:var(--text-dim);
+  }
+  .fact-list li:last-child{border-bottom:none;}
+  .fact-list li strong{color:var(--text);font-weight:600;}
+
+  /* ---------- Skills ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px;transition:transform .25s ease, border-color .25s ease;
+  }
+  .skill-card:hover{transform:translateY(-4px);border-color:rgba(10,10,10,0.3);}
+  .skill-card .icon{
+    width:38px;height:38px;border-radius:10px;background:var(--accent-grad);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .skill-card .icon svg{width:20px;height:20px;stroke:#ffffff;}
+  .skill-card h3{font-size:1.02rem;margin-bottom:12px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{
+    font-size:0.78rem;padding:6px 12px;border-radius:999px;
+    background:var(--surface-strong);border:1px solid var(--border);color:var(--text-dim);
+  }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{position:relative;padding-left:32px;}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--border);}
+  .tl-item{position:relative;padding-bottom:42px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-32px;top:4px;width:11px;height:11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent-1);
+  }
+  .tl-item.current::before{background:var(--good);border-color:var(--good);box-shadow:0 0 0 4px rgba(10,10,10,0.12);}
+  .tl-date{font-size:0.8rem;color:var(--text-faint);margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+  .badge-current{
+    font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;
+    color:#ffffff;background:#0a0a0a;border:1px solid #0a0a0a;
+    padding:3px 9px;border-radius:999px;
+  }
+  .tl-item h3{font-size:1.08rem;margin-bottom:3px;}
+  .tl-item .company{color:var(--accent-1);font-size:0.92rem;font-weight:500;margin-bottom:12px;display:block;}
+  .tl-item ul{display:flex;flex-direction:column;gap:7px;}
+  .tl-item li{color:var(--text-dim);font-size:0.93rem;padding-left:18px;position:relative;}
+  .tl-item li::before{content:"—";position:absolute;left:0;color:var(--text-faint);}
+
+  /* ---------- Projects ---------- */
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .project-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;transition:transform .25s ease, border-color .25s ease;display:flex;flex-direction:column;
+  }
+  .project-card:hover{transform:translateY(-5px);border-color:rgba(10,10,10,0.3);}
+  .project-thumb{
+    aspect-ratio:16/10;border-bottom:1px solid var(--border);
+    background:var(--bg-soft);overflow:hidden;position:relative;
+  }
+  .project-thumb img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+    transition:transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  .project-card:hover .project-thumb img{transform:scale(1.045);}
+  .project-thumb.fit{
+    background:repeating-linear-gradient(135deg, rgba(10,10,10,0.02) 0 10px, rgba(10,10,10,0.04) 10px 20px);
+  }
+  .project-thumb.fit img{object-fit:contain;object-position:center;padding:14px;}
+  .project-thumb.blank{
+    background:repeating-linear-gradient(135deg, rgba(10,10,10,0.025) 0 10px, rgba(10,10,10,0.045) 10px 20px);
+    display:flex;align-items:center;justify-content:center;color:var(--text-faint);
+  }
+  .project-thumb.blank svg{width:34px;height:34px;opacity:.5;}
+  .thumb-badge{
+    position:absolute;left:12px;bottom:12px;z-index:1;
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 11px;border-radius:999px;
+    background:rgba(255,255,255,0.92);border:1px solid var(--border);
+    font-size:0.68rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);
+    backdrop-filter:blur(6px);
+  }
+  .thumb-badge svg{width:10px;height:10px;fill:var(--text);}
+  .project-body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1;}
+  .project-body h3{font-size:1.05rem;}
+  .project-body .role{font-size:0.78rem;color:var(--text-faint);margin-top:-8px;}
+  .project-body p{color:var(--text-dim);font-size:0.9rem;flex:1;}
+  .project-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .project-link{
+    font-size:0.85rem;font-weight:600;color:var(--accent-1);
+    display:inline-flex;align-items:center;gap:6px;
+    background:none;border:none;padding:0;cursor:pointer;font-family:inherit;
+  }
+  .project-link svg{width:14px;height:14px;transition:transform .2s ease;}
+  .project-card:hover .project-link svg{transform:translate(3px,-3px);}
+  .project-link:focus-visible{outline:2px solid var(--accent-1);outline-offset:4px;border-radius:4px;}
+  .icon-link{
+    width:34px;height:34px;border-radius:50%;flex-shrink:0;
+    border:1px solid var(--border);background:var(--bg);
+    display:inline-flex;align-items:center;justify-content:center;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .icon-link svg{width:17px;height:17px;fill:var(--text);}
+  .icon-link:hover{transform:translateY(-2px);background:var(--surface-strong);border-color:rgba(10,10,10,0.3);}
+  .icon-link:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px;}
+
+  /* ---------- Project modal ---------- */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:200;padding:24px;
+    background:rgba(10,10,10,0.55);backdrop-filter:blur(10px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;transition:opacity .28s ease, visibility .28s ease;
+  }
+  .modal-overlay.open{opacity:1;visibility:visible;}
+  .modal{
+    background:var(--bg);border:1px solid var(--border);border-radius:26px;
+    width:min(980px,100%);max-height:min(90vh,860px);
+    display:flex;flex-direction:column;overflow:hidden;
+    box-shadow:0 34px 80px -34px rgba(10,10,10,.65);
+    transform:translateY(20px) scale(.97);
+    transition:transform .38s cubic-bezier(.22,1,.36,1);
+  }
+  .modal-overlay.open .modal{transform:none;}
+  .modal-head{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:20px;
+    padding:22px 26px 18px;border-bottom:1px solid var(--border);flex-shrink:0;
+  }
+  .modal-head h3{font-size:1.22rem;margin-bottom:6px;}
+  .modal-head .modal-sub{font-size:0.82rem;color:var(--text-faint);}
+  .modal-close{
+    width:36px;height:36px;border-radius:50%;flex-shrink:0;
+    border:1px solid var(--border);background:var(--bg);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .modal-close svg{width:16px;height:16px;stroke:var(--text);}
+  .modal-close:hover{background:var(--surface-strong);transform:rotate(90deg);}
+  .modal-close:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px;}
+
+  .gallery{position:relative;background:var(--bg-soft);border-bottom:1px solid var(--border);flex-shrink:0;}
+  .gallery-track{
+    display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    height:clamp(230px,42vh,400px);
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .gallery-track::-webkit-scrollbar{display:none;}
+  .gallery-slide{
+    flex:0 0 100%;scroll-snap-align:center;
+    display:flex;align-items:center;justify-content:center;padding:18px 60px;
+  }
+  .gallery-slide img,
+  .gallery-slide video{
+    max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+    border-radius:10px;border:1px solid var(--border);
+    box-shadow:0 14px 32px -20px rgba(10,10,10,.5);
+  }
+  .gallery-slide video{background:#000;}
+  .gallery-nav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:40px;height:40px;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,0.94);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 20px -10px rgba(10,10,10,.5);
+    transition:transform .2s ease, opacity .2s ease, background .2s ease;
+  }
+  .gallery-nav svg{width:18px;height:18px;stroke:var(--text);}
+  .gallery-nav:hover{transform:translateY(-50%) scale(1.09);}
+  .gallery-nav:focus-visible{outline:2px solid var(--accent-1);outline-offset:3px;}
+  .gallery-nav.prev{left:14px;}
+  .gallery-nav.next{right:14px;}
+  .gallery-nav:disabled{opacity:.3;cursor:default;transform:translateY(-50%);}
+  .gallery-foot{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    padding:0 20px 14px;flex-wrap:wrap;
+  }
+  .gallery-caption{font-size:0.8rem;color:var(--text-faint);text-align:center;}
+  .gallery-dots{display:flex;gap:6px;align-items:center;}
+  .gallery-dots button{
+    width:6px;height:6px;border-radius:999px;padding:0;border:none;cursor:pointer;
+    background:rgba(10,10,10,0.2);transition:width .25s ease, background .25s ease;
+  }
+  .gallery-dots button.active{width:18px;background:var(--text);}
+
+  .modal-body{padding:22px 26px 28px;overflow-y:auto;}
+  .modal-body p{color:var(--text-dim);font-size:0.94rem;margin:0 0 18px;}
+  .modal-body ul.modal-points{display:flex;flex-direction:column;gap:8px;margin:0;}
+  .modal-body ul.modal-points li{
+    color:var(--text-dim);font-size:0.92rem;padding-left:18px;position:relative;
+  }
+  .modal-body ul.modal-points li::before{content:"—";position:absolute;left:0;color:var(--text-faint);}
+  .modal-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px;}
+  .modal-actions .btn{padding:10px 20px;font-size:0.87rem;}
+  body.modal-open{overflow:hidden;}
+
+  /* ---------- Education ---------- */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;}
+  .edu-card h3{font-size:1.02rem;margin-bottom:4px;}
+  .edu-card .sub{color:var(--accent-1);font-size:0.88rem;margin-bottom:10px;display:block;}
+  .edu-card p{color:var(--text-dim);font-size:0.88rem;}
+
+  /* ---------- Contact ---------- */
+  .contact-box{
+    background:#0a0a0a;color:#ffffff;
+    border:1px solid #0a0a0a;border-radius:28px;padding:64px 50px;
+    display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap;
+  }
+  .contact-box h2{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:14px;color:#ffffff;}
+  .contact-box .grad-text{color:#ffffff;}
+  .contact-box p{color:rgba(255,255,255,0.62);max-width:420px;}
+  .contact-actions{display:flex;flex-direction:column;gap:14px;min-width:220px;}
+  .contact-box .btn-primary{background:#ffffff;color:#0a0a0a;}
+  .contact-box .btn-primary:hover{box-shadow:0 12px 26px -10px rgba(255,255,255,.35);}
+  .contact-row{display:flex;align-items:center;gap:10px;font-size:0.92rem;color:rgba(255,255,255,0.7);}
+  .contact-row svg{width:16px;height:16px;color:#ffffff;flex-shrink:0;}
+
+  footer{padding:40px 0;border-top:1px solid var(--border);}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-row p{color:var(--text-faint);font-size:0.82rem;}
+  .footer-interests{color:var(--text-faint);font-size:0.82rem;}
+  .back-top{font-size:0.82rem;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px;}
+
+  .reveal{
+    opacity:0;transform:translateY(34px) scale(0.92);
+    transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.34,1.56,.64,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in-view{opacity:1;transform:translateY(0) scale(1);}
+
+  /* Staggered pop-in for grid/list items */
+  .skills-grid .skill-card:nth-child(1){transition-delay:0ms;}
+  .skills-grid .skill-card:nth-child(2){transition-delay:70ms;}
+  .skills-grid .skill-card:nth-child(3){transition-delay:140ms;}
+  .skills-grid .skill-card:nth-child(4){transition-delay:210ms;}
+  .skills-grid .skill-card:nth-child(5){transition-delay:280ms;}
+  .skills-grid .skill-card:nth-child(6){transition-delay:350ms;}
+  .projects-grid .project-card:nth-child(1){transition-delay:0ms;}
+  .projects-grid .project-card:nth-child(2){transition-delay:80ms;}
+  .projects-grid .project-card:nth-child(3){transition-delay:160ms;}
+  .projects-grid .project-card:nth-child(4){transition-delay:240ms;}
+  .projects-grid .project-card:nth-child(5){transition-delay:320ms;}
+  .projects-grid .project-card:nth-child(6){transition-delay:400ms;}
+  .edu-grid .edu-card:nth-child(1){transition-delay:0ms;}
+  .edu-grid .edu-card:nth-child(2){transition-delay:100ms;}
+  .timeline .tl-item:nth-child(1){transition-delay:0ms;}
+  .timeline .tl-item:nth-child(2){transition-delay:90ms;}
+  .timeline .tl-item:nth-child(3){transition-delay:180ms;}
+  .timeline .tl-item:nth-child(4){transition-delay:270ms;}
+  .hero-stats div:nth-child(1){transition-delay:0ms;}
+  .hero-stats div:nth-child(2){transition-delay:90ms;}
+  .hero-stats div:nth-child(3){transition-delay:180ms;}
+
+  /* Higher-specificity merge so hover transitions survive alongside the reveal pop-in */
+  .skill-card.reveal, .project-card.reveal{
+    transition:opacity .6s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.34,1.56,.64,1), border-color .25s ease;
+  }
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-wrap{order:-1;}
+    .hero-photo{width:200px;height:200px;border-radius:22px;}
+    .about-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
+    .projects-grid{grid-template-columns:repeat(2,1fr);}
+    .edu-grid{grid-template-columns:1fr;}
+    .contact-box{padding:42px 28px;}
+  }
+  @media (max-width:600px){
+    .skills-grid{grid-template-columns:1fr;}
+    .projects-grid{grid-template-columns:1fr;}
+    section.pad{padding:80px 0;}
+    .modal-overlay{padding:12px;}
+    .modal{border-radius:20px;max-height:94vh;}
+    .modal-head{padding:18px 18px 14px;}
+    .modal-body{padding:18px;}
+    .gallery-slide{padding:14px 46px;}
+    .gallery-nav{width:34px;height:34px;}
+    .gallery-nav.prev{left:8px;}
+    .gallery-nav.next{right:8px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">Shashank<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary" style="padding:10px 22px;font-size:0.88rem;">Get in touch</a>
+        <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Open to graduate software & data roles</span>
+        <h1>Hi, I'm Shashank — I build <span class="grad-text">clean, reliable software</span> from data to deployment.</h1>
+        <p class="lead">First-class Computer Science graduate who ships full products end-to-end — a graduate job platform, an NFC attendance system, an AI wellness app and a mobile game. Currently a Data Analyst at TELUS Digital, based in Leeds, UK.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View my projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="hero-stats">
+          <div class="reveal"><strong>1st</strong><span>Class Honours, BSc CS</span></div>
+          <div class="reveal"><strong>5+</strong><span>Shipped technical projects</span></div>
+          <div class="reveal"><strong>Leeds</strong><span>UK · open to relocation</span></div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap reveal">
+        <img src="profile picture.jpg" alt="Shashank Subba Dongol" class="hero-photo" width="280" height="280">
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="pad" id="about">
+    <div class="wrap">
+      <div class="about-grid reveal">
+        <div>
+          <span class="eyebrow">About</span>
+          <h2 style="margin-bottom:22px;">A bit about how I work</h2>
+          <p>I'm a first-class Computer Science graduate from Leeds Beckett University (80% overall average, a First in every graded module) who builds things end-to-end. I've shipped a graduate job platform, an offline-first NFC attendance system with real hardware integration, an AI wellness app built solo in a 24-hour hackathon, and an IoT plant monitor spanning ESP32 firmware and a native Android app — two of which were nominated for the university's project showcase.</p>
+          <p>I learn fast, enjoy untangling messy problems methodically, and care about explaining technical work clearly — whether that's to another engineer or someone non-technical. Outside of work I'm usually competing in Valorant or CS, watching football, or talking about cars.</p>
+        </div>
+        <div class="fact-card">
+          <ul class="fact-list">
+            <li><span>Location</span><strong>Leeds, UK</strong></li>
+            <li><span>Education</span><strong>BSc (Hons) CS — 1st</strong></li>
+            <li><span>Current role</span><strong>CTO, Strived</strong></li>
+            <li><span>Alongside</span><strong>Data Analyst, TELUS Digital</strong></li>
+            <li><span>Languages</span><strong>EN · NE · HI</strong></li>
+            <li><span>Status</span><strong>Open to opportunities</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="pad" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Skills</span>
+        <h2>What I work with</h2>
+        <p>A broad technical base built through academic projects, professional contract work and self-driven learning.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></div>
+          <h3>Languages</h3>
+          <div class="pill-row">
+            <span class="pill">TypeScript</span><span class="pill">Python</span><span class="pill">Java</span><span class="pill">C#</span>
+            <span class="pill">Kotlin</span><span class="pill">SQL</span><span class="pill">C/C++</span><span class="pill">GDScript</span><span class="pill">R</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+          <h3>Backend, Cloud & Data</h3>
+          <div class="pill-row">
+            <span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">Firebase</span>
+            <span class="pill">SQLite</span><span class="pill">REST APIs</span><span class="pill">AWS</span>
+            <span class="pill">Azure</span><span class="pill">Load testing</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Web & Mobile</h3>
+          <div class="pill-row">
+            <span class="pill">React</span><span class="pill">React Native</span><span class="pill">Next.js</span>
+            <span class="pill">Tailwind CSS</span><span class="pill">Expo / EAS</span><span class="pill">Kotlin Android</span><span class="pill">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Tools & Practices</h3>
+          <div class="pill-row">
+            <span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Agile/Scrum</span>
+            <span class="pill">Unit & integration testing</span><span class="pill">CI/CD concepts</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="1"/><path d="M8 11V7a4 4 0 1 1 8 0v4"/></svg></div>
+          <h3>AI, Embedded & Game Dev</h3>
+          <div class="pill-row">
+            <span class="pill">Gemini API</span><span class="pill">Prompt engineering</span><span class="pill">Godot 4</span>
+            <span class="pill">Arduino / ESP32</span><span class="pill">NFC (MIFARE, PC/SC)</span><span class="pill">Linux / C</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Soft Skills</h3>
+          <div class="pill-row">
+            <span class="pill">Clear communication</span><span class="pill">Problem decomposition</span><span class="pill">Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="pad" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Experience</span>
+        <h2>Where I've worked</h2>
+        <p>Leading engineering on a product alongside remote data and AI-evaluation roles.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item current reveal">
+          <div class="tl-date">2026 – Present <span class="badge-current">Current</span></div>
+          <h3>CTO</h3>
+          <span class="company">Strived</span>
+          <ul>
+            <li>Lead all engineering on a two-sided graduate job marketplace built with Next.js, TypeScript and Tailwind CSS.</li>
+            <li>Built the matching onboarding flow, swipe-to-apply feed, psychometric practice engine, CV builder and application tracker.</li>
+            <li>Own the technical roadmap and the employer-side dashboard used for direct partnerships with UK businesses.</li>
+          </ul>
+        </div>
+        <div class="tl-item current reveal">
+          <div class="tl-date">May 2026 – Present <span class="badge-current">Current</span></div>
+          <h3>Data Analyst (Part-time)</h3>
+          <span class="company">TELUS Digital AI Data Solutions</span>
+          <ul>
+            <li>Analyse and process structured datasets using Python and SQL to support accurate, data-driven reporting.</li>
+            <li>Identify and resolve data quality issues, maintaining high standards of accuracy and consistency.</li>
+          </ul>
+        </div>
+        <div class="tl-item current reveal">
+          <div class="tl-date">Jan 2024 – Present <span class="badge-current">Current</span></div>
+          <h3>Data Annotator</h3>
+          <span class="company">Outlier AI</span>
+          <ul>
+            <li>Evaluate Python and SQL code outputs for correctness, logic and adherence to best practices, developing a strong eye for data pipeline edge cases.</li>
+            <li>Leverage AI-assisted tooling to improve the quality and throughput of review, annotation and documentation work.</li>
+            <li>Maintain detailed logs and quality metrics to support continuous improvement.</li>
+          </ul>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">Feb 2023 – Sep 2024</div>
+          <h3>Data Analyst (Contract)</h3>
+          <span class="company">Cloud Factory, Nepal</span>
+          <ul>
+            <li>Processed and validated large structured datasets using Python and SQL, identifying and resolving data quality issues.</li>
+            <li>Documented data transformation logic to support reproducibility.</li>
+            <li>Collaborated with cross-functional teams in an Agile environment, adapting to shifting requirements and deadlines.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="pad" id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Projects</span>
+        <h2>Things I've built</h2>
+        <p>Products, platforms and games built end-to-end — from hardware and firmware through to the app people actually use. Hit <strong>View</strong> on any card for screenshots and the full story.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="strived1.png" alt="Strived landing page with swipe-to-apply job cards" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>Strived</h3>
+            <span class="role">CTO</span>
+            <p>A two-sided graduate job marketplace: matched onboarding, swipe-to-apply, psychometric practice and a live application tracker.</p>
+            <div class="pill-row"><span class="pill">Next.js</span><span class="pill">TypeScript</span><span class="pill">Tailwind CSS</span></div>
+            <div class="project-foot">
+              <button class="project-link" data-project="strived" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+              <a class="icon-link" href="https://github.com/ssubbadongol/ssubbadongol#strived" target="_blank" rel="noopener" aria-label="Strived on GitHub (private repo — opens the write-up)">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="nfc2.png" alt="NFC attendance lecturer dashboard with live tap feed" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>Tap-In — NFC Attendance System</h3>
+            <span class="role">LBU Showcase Nominee</span>
+            <p>Offline-first classroom check-in over physical NFC readers, with role-based dashboards, fallback check-in paths and an analytics layer.</p>
+            <div class="pill-row"><span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">SQLite</span><span class="pill">NFC</span></div>
+            <div class="project-foot">
+              <button class="project-link" data-project="tapin" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+              <a class="icon-link" href="https://github.com/ssubbadongol/ssubbadongol#tap-in-attendance" target="_blank" rel="noopener" aria-label="Tap-In Attendance on GitHub (private repo — opens the write-up)">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb fit">
+            <img src="softfocus1.png" alt="Soft Focus app focus mode screen" loading="lazy">
+          </div>
+          <div class="project-body">
+            <h3>Soft Focus</h3>
+            <span class="role">Solo build · LeedsHack 2026 (24 hrs)</span>
+            <p>Cross-platform wellness app for neurodivergent students: a Gemini-powered AI mentor, anonymous community pods and camera-based focus tracking.</p>
+            <div class="pill-row"><span class="pill">React Native</span><span class="pill">Firebase</span><span class="pill">Gemini 2.0 Flash</span></div>
+            <div class="project-foot">
+              <button class="project-link" data-project="softfocus" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+              <a class="icon-link" href="https://github.com/ssubbadongol/energy-app" target="_blank" rel="noopener" aria-label="Soft Focus on GitHub">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="ghostarena4.png" alt="Ghost Arena gameplay — SMG fire against a wave of enemies" loading="lazy">
+            <span class="thumb-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Gameplay video</span>
+          </div>
+          <div class="project-body">
+            <h3>Ghost Arena</h3>
+            <span class="role">Solo dev · Android-first</span>
+            <p>Wave-survival arena shooter with six weapons, roguelike upgrade cards, A* enemy pathfinding and a full game-feel pass.</p>
+            <div class="pill-row"><span class="pill">Godot 4</span><span class="pill">GDScript</span><span class="pill">Android</span></div>
+            <div class="project-foot">
+              <button class="project-link" data-project="ghostarena" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+              <a class="icon-link" href="https://github.com/ssubbadongol/ssubbadongol#ghost-arena" target="_blank" rel="noopener" aria-label="Ghost Arena on GitHub (private repo — opens the write-up)">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21c0-6 3-9 8-9 0 5-3 9-8 9zM12 21c0-5-2.5-7.5-7-7.5 0 4.5 2.5 7.5 7 7.5zM12 21V10"/></svg>
+          </div>
+          <div class="project-body">
+            <h3>Smart Plant Monitoring System</h3>
+            <span class="role">Final Year Project · Graded First Class</span>
+            <p>Full-stack IoT build pairing an ESP32 sensor rig with a native Kotlin Android app for live monitoring and automated watering.</p>
+            <div class="pill-row"><span class="pill">ESP32</span><span class="pill">C++</span><span class="pill">Kotlin</span><span class="pill">Android</span></div>
+            <div class="project-foot">
+              <button class="project-link" data-project="plant" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section class="pad tight" id="education">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Education & Certifications</span>
+        <h2>Academic background</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <h3>BSc (Hons) Computer Science — 1st Class Honours</h3>
+          <span class="sub">Leeds Beckett University · Sep 2022 – Jun 2025 · 80% overall average</span>
+          <p>Achieved a First in every graded module across the degree, including the Final Year Production Project.<br><br>Key modules: Python Programming, Data Science &amp; Applied ML (R), Cloud Computing (AWS/Azure), Database Development (Oracle Apex SQL), Software Engineering (C#/.NET, TDD), Kotlin Android Development, Operating Systems in Practice (C/Linux), Computer Vision (MATLAB), Embedded Systems (Arduino), Cisco Networking, Digital Security.</p>
+        </div>
+        <div class="edu-card reveal">
+          <h3>Certifications & Languages</h3>
+          <span class="sub">Ongoing professional development</span>
+          <p>AWS SageMaker &amp; Cloud Foundations — Amazon Web Services<br><br>Languages: English (Fluent) · Nepali (Native) · Hindi (Intermediate)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="pad tight" id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <div>
+          <h2>Let's build something <span class="grad-text">together.</span></h2>
+          <p>I'm actively looking for graduate software, data and cloud roles. Feel free to reach out — I usually reply within a day.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:s.subbadongol@gmail.com" class="btn btn-primary">Say hello</a>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+            s.subbadongol@gmail.com
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            linkedin.com/in/shashank-subba-dongol
+          </div>
+          <div class="contact-row">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            github.com/ssubbadongol
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== PROJECT MODAL ===================== -->
+<div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal" role="document">
+    <div class="modal-head">
+      <div>
+        <h3 id="modalTitle"></h3>
+        <span class="modal-sub" id="modalSub"></span>
+      </div>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="gallery" id="modalGallery">
+      <button class="gallery-nav prev" id="galleryPrev" type="button" aria-label="Previous screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="gallery-track" id="galleryTrack"></div>
+      <button class="gallery-nav next" id="galleryNext" type="button" aria-label="Next screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="gallery-foot">
+        <div class="gallery-dots" id="galleryDots"></div>
+        <span class="gallery-caption" id="galleryCaption"></span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="pill-row" id="modalTags" style="margin-bottom:16px;"></div>
+      <div id="modalText"></div>
+      <ul class="modal-points" id="modalPoints"></ul>
+      <div class="modal-actions" id="modalActions"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© 2026 Shashank Subba Dongol. Built from scratch, no templates.</p>
+    <p class="footer-interests">Off-screen: Valorant & CS competitive · football · cars</p>
+    <a href="#top" class="back-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Sticky header background on scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile menu toggle
+  const burger = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll-reveal animation — replays every time an element enters/leaves the
+  // viewport, so scrolling up fades things out and scrolling back down pops
+  // them back in.
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ---------------------------------------------------------------
+  // Project detail modal: screenshot carousel + write-up
+  // ---------------------------------------------------------------
+  const GITHUB_README = 'https://github.com/ssubbadongol/ssubbadongol';
+
+  const PROJECTS = {
+    strived: {
+      title: 'Strived',
+      sub: 'CTO · Next.js · Tailwind CSS · TypeScript',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Product'],
+      images: [
+        { src: 'strived1.png', caption: 'Landing page — swipe-to-apply job cards with live matching' },
+        { src: 'strived2.png', caption: 'Psychometric practice — timed numerical, verbal and logical drills' },
+        { src: 'strived3.png', caption: 'Employer side — post once, receive real applications in your dashboard' },
+        { src: 'strived4.png', caption: 'Waitlist flow — separate job seeker and employer journeys' }
+      ],
+      intro: 'Strived is a two-sided graduate job marketplace where I lead engineering as CTO. It connects UK job seekers with employers who post roles directly on the platform, so a swipe-right is a genuine application landing in an employer inbox — not a bot filling in a form on someone else’s site.',
+      points: [
+        'Onboarding flow that captures degree, university and preferences to match candidates to the right roles',
+        'Swipe-to-apply feed for fast, low-friction applications',
+        'Built-in psychometric practice (numerical, verbal and logic/reasoning) with timed questions and instant worked answers',
+        'CV builder and application tracker with live status updates',
+        'Go-to-market built on direct partnerships with smaller businesses posting real roles'
+      ],
+      links: [
+        { label: 'Visit strived.co.uk', href: 'https://www.strived.co.uk/', primary: true },
+        { label: 'GitHub', href: GITHUB_README + '#strived', github: true, note: 'Private repo — opens the write-up' }
+      ]
+    },
+    tapin: {
+      title: 'Tap-In — NFC Attendance System',
+      sub: 'Offline-first classroom check-in · Nominated for the LBU project showcase',
+      tags: ['Node.js', 'Express', 'SQLite', 'NFC (MIFARE)', 'Chart.js'],
+      images: [
+        { src: 'nfc1.png', caption: 'Role selection — lecturer and admin share one attendance store' },
+        { src: 'nfc2.png', caption: 'Lecturer dashboard — live tap feed during an active session' },
+        { src: 'nfc3.png', caption: 'Admin panel — student, card and module management' },
+        { src: 'nfc4.png', caption: 'Analytics — attendance over time, module performance and check-in method split' },
+        { src: 'nfc5.png', caption: 'Module deep dive, enrollment mismatch warnings and CSV exports' }
+      ],
+      intro: 'A full-stack, offline-first NFC attendance platform for university classrooms, replacing manual registers with tap-to-attend. It ships separate role-based views for students, lecturers and admins, and runs entirely on local infrastructure so a dropped network never blocks a lecture.',
+      points: [
+        'Physical NFC hardware (ACR122U-class reader) integrated over the PC/SC protocol in a decoupled process — isolating flaky reader hardware from the server, debouncing duplicate reads and normalising card UIDs before posting to the API',
+        'Data integrity enforced at the database level with unique constraints and partial indexes (one active session at a time, one attendance record per student per session), plus idempotent check-ins',
+        'Fallback check-in paths when no reader is available: a rotating 6-digit code refreshed every 60 seconds, plus manual override from the live lecturer dashboard',
+        'Self-migrating schema (additive migrations on boot) and a Chart.js analytics dashboard covering attendance trends, per-module breakdowns and check-in method distribution',
+        'Validated under load with custom stress-test tooling simulating 200 concurrent taps including intentional duplicates, reporting throughput and p95/max latency',
+        'Delivered with a full business proposal and executive summary to university stakeholders'
+      ],
+      links: [
+        { label: 'GitHub', href: GITHUB_README + '#tap-in-attendance', github: true, note: 'Private repo — opens the write-up' }
+      ]
+    },
+    softfocus: {
+      title: 'Soft Focus',
+      sub: 'AI wellness app for neurodivergent students · Solo build @ LeedsHack 2026 (24 hrs, 159 participants)',
+      tags: ['React Native', 'Firebase', 'Gemini 2.0 Flash', 'Presage SDK', 'ElevenLabs'],
+      images: [
+        { src: 'softfocus1.png', caption: 'Focus Mode — camera-based attention tracking with colour overlays' },
+        { src: 'softfocus3.png', caption: 'Task list — priority, energy and time-aware task management' },
+        { src: 'softfocus5.png', caption: 'Add task — smart energy matching against how you’re feeling' },
+        { src: 'softfocus2.png', caption: 'Community Pods — matched on what brings you here and the support you want' },
+        { src: 'softfocus4.png', caption: 'Live pod chat — anonymous, ephemeral peer support' }
+      ],
+      intro: 'A cross-platform (iOS, Android, web) wellness companion for neurodivergent students, built and shipped solo end-to-end in a 24-hour hackathon. It combines task management, AI mentorship, anonymous community chat and camera-based focus tracking in one app.',
+      points: [
+        'Firebase backend: anonymous authentication for privacy, Firestore for real-time sync and cloud storage for conversation history',
+        'Google Gemini 2.0 Flash with custom prompt engineering, powering an empathetic AI mentor with persistent, tag-personalised memory (ADHD, anxiety, etc.)',
+        'Real-time, ephemeral "Community Pods" — anonymous 3–5 person support chats with 24-hour/7-day expiry, built on Firestore listeners',
+        'Presage SDK for camera-based real-time attention tracking with a live focus-percentage graph, plus ElevenLabs for optional text-to-speech',
+        'Solved cross-platform constraints: migrated off Expo Go to a custom development build to support native SDKs, and wrote Firestore security rules for private, deletable history',
+        'Result: fully functional MVP submitted to LeedsHack 2026 and deployed via EAS for public testing'
+      ],
+      links: [
+        { label: 'GitHub', href: 'https://github.com/ssubbadongol/energy-app', github: true }
+      ]
+    },
+    ghostarena: {
+      title: 'Ghost Arena',
+      sub: 'Wave-survival shooter · Solo dev · Android-first',
+      tags: ['Godot 4', 'GDScript', 'Android'],
+      images: [
+        { type: 'video', src: 'ghostarenavid.mp4', caption: 'Gameplay — wave survival, weapon switching and the full game-feel pass' },
+        { src: 'ghostarena1.png', caption: 'Between-wave upgrade cards — pick one of three stacking modifiers' },
+        { src: 'ghostarena4.png', caption: 'Wave 4 — SMG spray with hit particles and screen shake' },
+        { src: 'ghostarena2.png', caption: 'Wave 3 — sniper loadout against pathfinding enemies' },
+        { src: 'ghostarena5.png', caption: 'Wave 6 — assault rifle across the symmetrical three-layer castle arena' },
+        { src: 'ghostarena3.png', caption: 'Run over — wave and kill count carried through to the retry screen' }
+      ],
+      intro: 'A cute-but-deadly wave-survival arena shooter with kawaii ghost characters, deep weapon systems and roguelike upgrade cards. Built solo in Godot 4, targeting Android first.',
+      points: [
+        'Six-weapon system: pistol, SMG, shotgun, sniper, rocket launcher and assault rifle',
+        'Between-wave upgrade cards with stacking modifiers',
+        'Four enemy archetypes with A* pathfinding, and armed enemies from wave 5',
+        'Symmetrical three-layer castle arena on a 1920×1088 tilemap',
+        'Full game-feel pass: screen shake, hit-stop and SFX',
+        'P2P multiplayer planned via WebRTC/PeerJS'
+      ],
+      links: [
+        { label: 'GitHub', href: GITHUB_README + '#ghost-arena', github: true, note: 'Private repo — opens the write-up' }
+      ]
+    },
+    plant: {
+      title: 'Smart Plant Monitoring System',
+      sub: 'Final Year Production Project · Graded First Class · Nominated for the LBU project showcase',
+      tags: ['ESP32', 'C++', 'Kotlin', 'Android', 'IoT'],
+      images: [],
+      intro: 'A full-stack IoT system built solo, pairing an ESP32 microcontroller with a native Kotlin Android app for real-time plant monitoring and automated watering.',
+      points: [
+        'Embedded C++ firmware (Arduino IDE) reading DHT22 (temperature/humidity), BH1750 (light) and soil-moisture sensors, serving live readings over Wi-Fi from a local HTTP server',
+        'Kotlin/Android Studio app polling sensor data every 2 seconds over HTTP, parsing JSON and rendering live state',
+        'Manual and automatic pump-control modes driven by threshold-based logic',
+        'Cooldown-based notification system to flag low soil moisture without alert fatigue, plus input validation and structured error handling/logging for network reliability',
+        'Validated with unit tests per sensor, integration tests across the full device-to-app pipeline, and cross-device usability/performance testing'
+      ],
+      links: []
+    }
+  };
+
+  const GH_PATH = 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z';
+
+  const modal      = document.getElementById('projectModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSub   = document.getElementById('modalSub');
+  const modalTags  = document.getElementById('modalTags');
+  const modalText  = document.getElementById('modalText');
+  const modalPts   = document.getElementById('modalPoints');
+  const modalActs  = document.getElementById('modalActions');
+  const modalBody  = document.querySelector('#projectModal .modal-body');
+  const gallery    = document.getElementById('modalGallery');
+  const track      = document.getElementById('galleryTrack');
+  const dotsWrap   = document.getElementById('galleryDots');
+  const caption    = document.getElementById('galleryCaption');
+  const prevBtn    = document.getElementById('galleryPrev');
+  const nextBtn    = document.getElementById('galleryNext');
+  const closeBtn   = document.getElementById('modalClose');
+
+  let slides = [];
+  let index = 0;
+  let lastFocused = null;
+
+  function goTo(i, smooth = true) {
+    if (!slides.length) return;
+    index = Math.max(0, Math.min(i, slides.length - 1));
+    track.scrollTo({ left: track.clientWidth * index, behavior: smooth ? 'smooth' : 'auto' });
+    syncGalleryUI();
+  }
+
+  function syncGalleryUI() {
+    if (!slides.length) return;
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+    caption.textContent = slides[index].caption || '';
+    [...dotsWrap.children].forEach((d, i) => d.classList.toggle('active', i === index));
+    // Only the visible slide's video should ever be playing.
+    track.querySelectorAll('video').forEach(v => {
+      const onScreen = Number(v.dataset.slide) === index;
+      if (onScreen) { v.play().catch(() => {}); }
+      else { v.pause(); v.currentTime = 0; }
+    });
+  }
+
+  function buildGallery(images) {
+    track.innerHTML = '';
+    dotsWrap.innerHTML = '';
+    slides = images || [];
+    index = 0;
+
+    if (!slides.length) {
+      gallery.style.display = 'none';
+      return;
+    }
+    gallery.style.display = '';
+
+    slides.forEach((item, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'gallery-slide';
+
+      let el;
+      if (item.type === 'video') {
+        el = document.createElement('video');
+        el.src = item.src;
+        el.controls = true;
+        el.loop = true;
+        el.muted = true;          // required for autoplay when the slide becomes active
+        el.playsInline = true;
+        el.preload = 'metadata';
+        el.dataset.slide = i;
+        el.setAttribute('aria-label', item.caption || 'Gameplay video');
+      } else {
+        el = document.createElement('img');
+        el.src = item.src;
+        el.alt = item.caption || '';
+        el.loading = i === 0 ? 'eager' : 'lazy';
+      }
+      slide.appendChild(el);
+      track.appendChild(slide);
+
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Go to item ' + (i + 1) + ' of ' + slides.length);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const single = slides.length === 1;
+    prevBtn.style.display = single ? 'none' : '';
+    nextBtn.style.display = single ? 'none' : '';
+    dotsWrap.style.display = single ? 'none' : '';
+
+    track.scrollLeft = 0;
+    syncGalleryUI();
+  }
+
+  function openProject(key) {
+    const p = PROJECTS[key];
+    if (!p) return;
+
+    lastFocused = document.activeElement;
+    modalTitle.textContent = p.title;
+    modalSub.textContent = p.sub || '';
+
+    modalTags.innerHTML = '';
+    (p.tags || []).forEach(t => {
+      const s = document.createElement('span');
+      s.className = 'pill';
+      s.textContent = t;
+      modalTags.appendChild(s);
+    });
+
+    modalText.innerHTML = '';
+    const intro = document.createElement('p');
+    intro.textContent = p.intro;
+    modalText.appendChild(intro);
+
+    modalPts.innerHTML = '';
+    (p.points || []).forEach(pt => {
+      const li = document.createElement('li');
+      li.textContent = pt;
+      modalPts.appendChild(li);
+    });
+
+    modalActs.innerHTML = '';
+    (p.links || []).forEach(l => {
+      const a = document.createElement('a');
+      a.href = l.href;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      if (l.github) {
+        a.className = 'btn btn-ghost';
+        a.innerHTML = '<svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="' + GH_PATH + '"/></svg>';
+        a.appendChild(document.createTextNode(l.label));
+        if (l.note) a.title = l.note;
+      } else {
+        a.className = l.primary ? 'btn btn-primary' : 'btn btn-ghost';
+        a.textContent = l.label;
+      }
+      modalActs.appendChild(a);
+    });
+
+    buildGallery(p.images);
+    modalBody.scrollTop = 0;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    closeBtn.focus();
+    // Slide widths are only correct once the modal has laid out.
+    requestAnimationFrame(() => goTo(0, false));
+  }
+
+  function closeProject() {
+    track.querySelectorAll('video').forEach(v => v.pause());
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocused) lastFocused.focus();
+  }
+
+  document.querySelectorAll('.project-link[data-project]').forEach(btn => {
+    btn.addEventListener('click', () => openProject(btn.dataset.project));
+  });
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  closeBtn.addEventListener('click', closeProject);
+  modal.addEventListener('click', e => { if (e.target === modal) closeProject(); });
+
+  // Keep the dots/caption in step with manual swiping or trackpad scrolling.
+  let scrollTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      if (!slides.length || !track.clientWidth) return;
+      index = Math.round(track.scrollLeft / track.clientWidth);
+      syncGalleryUI();
+    }, 90);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeProject(); return; }
+    // Let the video's own controls own the arrow keys while it has focus.
+    if (document.activeElement && document.activeElement.tagName === 'VIDEO') return;
+    if (e.key === 'ArrowRight') goTo(index + 1);
+    if (e.key === 'ArrowLeft') goTo(index - 1);
+  });
+</script>
+
+</body>
+</html>
