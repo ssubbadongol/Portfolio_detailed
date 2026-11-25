@@ -232,7 +232,8 @@
   .project-body h3{font-size:1.05rem;}
   .project-body .role{font-size:0.78rem;color:var(--text-faint);margin-top:-8px;}
   .project-body p{color:var(--text-dim);font-size:0.9rem;flex:1;}
-  .project-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .project-foot{display:flex;align-items:center;justify-content:flex-end;gap:10px;}
+  .project-foot .project-link{margin-right:auto;}
   .project-link{
     font-size:0.85rem;font-weight:600;color:var(--accent-1);
     display:inline-flex;align-items:center;gap:6px;
@@ -469,7 +470,7 @@
       <div>
         <span class="eyebrow">Open to graduate software & data roles</span>
         <h1>Hi, I'm Shashank. I build <span class="grad-text">clean, reliable software</span> from data to deployment.</h1>
-        <p class="lead">First-class Computer Science graduate who ships full products end-to-end: a graduate job platform, an NFC attendance system, an AI wellness app and a mobile game. Currently a Data Analyst at TELUS Digital, based in Leeds, UK.</p>
+        <p class="lead">First-class Computer Science graduate who ships full products end-to-end: a graduate job platform, an NFC attendance system, an energy-based planner now live on the App Store, and a mobile game. Based in Leeds, UK.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">View my projects</a>
           <a href="#contact" class="btn btn-ghost">Get in touch</a>
@@ -495,14 +496,14 @@
         <div>
           <span class="eyebrow">About</span>
           <h2 style="margin-bottom:22px;">A bit about how I work</h2>
-          <p>I'm a first-class Computer Science graduate from Leeds Beckett University (80% overall average, a First in every graded module) who builds things end-to-end. I've shipped a graduate job platform, an offline-first NFC attendance system with real hardware integration, an AI wellness app built solo in a 24-hour hackathon, and an IoT plant monitor spanning ESP32 firmware and a native Android app, two of which were nominated for the university's project showcase.</p>
+          <p>I'm a first-class Computer Science graduate from Leeds Beckett University (80% overall average, a First in every graded module) who builds things end-to-end. I've shipped a graduate job platform, an offline-first NFC attendance system with real hardware integration, an energy-based planner I started solo in a 24-hour hackathon and took all the way to the App Store, and an IoT plant monitor spanning ESP32 firmware and a native Android app, two of which were nominated for the university's project showcase.</p>
           <p>I learn fast, enjoy untangling messy problems methodically, and care about explaining technical work clearly, whether that's to another engineer or someone non-technical. Outside of work I'm usually competing in Valorant or CS, watching football, or talking about cars.</p>
         </div>
         <div class="fact-card">
           <ul class="fact-list">
             <li><span>Location</span><strong>Leeds, UK</strong></li>
             <li><span>Education</span><strong>BSc (Hons) CS, 1st</strong></li>
-            <li><span>Current role</span><strong>Data Analyst, TELUS Digital</strong></li>
+            <li><span>Current role</span><strong>Data Annotator, Outlier AI</strong></li>
             <li><span>Languages</span><strong>EN · NE · HI</strong></li>
             <li><span>Status</span><strong>Open to opportunities</strong></li>
           </ul>
@@ -586,15 +587,6 @@
       </div>
       <div class="timeline">
         <div class="tl-item current reveal">
-          <div class="tl-date">May 2026 – Present <span class="badge-current">Current</span></div>
-          <h3>Data Analyst (Part-time)</h3>
-          <span class="company">TELUS Digital AI Data Solutions</span>
-          <ul>
-            <li>Analyse and process structured datasets using Python and SQL to support accurate, data-driven reporting.</li>
-            <li>Identify and resolve data quality issues, maintaining high standards of accuracy and consistency.</li>
-          </ul>
-        </div>
-        <div class="tl-item current reveal">
           <div class="tl-date">Jan 2024 – Present <span class="badge-current">Current</span></div>
           <h3>Data Annotator</h3>
           <span class="company">Outlier AI</span>
@@ -602,6 +594,15 @@
             <li>Evaluate Python and SQL code outputs for correctness, logic and adherence to best practices, developing a strong eye for data pipeline edge cases.</li>
             <li>Leverage AI-assisted tooling to improve the quality and throughput of review, annotation and documentation work.</li>
             <li>Maintain detailed logs and quality metrics to support continuous improvement.</li>
+          </ul>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">May 2026 – Nov 2026</div>
+          <h3>Data Analyst (Part-time)</h3>
+          <span class="company">TELUS Digital AI Data Solutions</span>
+          <ul>
+            <li>Analysed and processed structured datasets using Python and SQL to support accurate, data-driven reporting.</li>
+            <li>Identified and resolved data quality issues, maintaining high standards of accuracy and consistency.</li>
           </ul>
         </div>
         <div class="tl-item reveal">
@@ -678,15 +679,18 @@
 
         <div class="project-card reveal">
           <div class="project-thumb fit">
-            <img src="softfocus1.png" alt="Soft Focus app focus mode screen" loading="lazy">
+            <img src="softfocus1.png" alt="Soft Focus Today screen with tasks matched to your energy" loading="lazy">
           </div>
           <div class="project-body">
             <h3>Soft Focus</h3>
-            <span class="role">Solo build · LeedsHack 2026 (24 hrs)</span>
-            <p>Cross-platform wellness app for neurodivergent students: a Gemini-powered AI mentor, anonymous community pods and camera-based focus tracking.</p>
-            <div class="pill-row"><span class="pill">React Native</span><span class="pill">Firebase</span><span class="pill">Gemini 2.0 Flash</span></div>
+            <span class="role">Solo build · Live on the App Store</span>
+            <p>A gentle planner for neurodivergent students that shows the tasks that fit your energy, with an AI mentor and anonymous peer-support pods. Started at LeedsHack 2026, now on the App Store.</p>
+            <div class="pill-row"><span class="pill">React Native</span><span class="pill">Firebase</span><span class="pill">Gemini</span><span class="pill">iOS</span></div>
             <div class="project-foot">
               <button class="project-link" data-project="softfocus" type="button">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></button>
+              <a class="icon-link" href="https://apps.apple.com/app/soft-focus-energy-planner/id6815162003" target="_blank" rel="noopener" aria-label="Soft Focus on the App Store" title="Download on the App Store">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:var(--text);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3M10.5 18.5h3"/></svg>
+              </a>
               <a class="icon-link" href="https://github.com/ssubbadongol/energy-app" target="_blank" rel="noopener" aria-label="Soft Focus on GitHub">
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
               </a>
@@ -913,25 +917,28 @@
     },
     softfocus: {
       title: 'Soft Focus',
-      sub: 'AI wellness app for neurodivergent students · Solo build @ LeedsHack 2026 (24 hrs, 159 participants)',
-      tags: ['React Native', 'Firebase', 'Gemini 2.0 Flash', 'Presage SDK', 'ElevenLabs'],
+      sub: 'Energy-based planner for neurodivergent students · Solo build · Live on the App Store',
+      tags: ['React Native', 'Expo', 'Firebase', 'Cloud Functions', 'Gemini', 'iOS'],
       images: [
-        { src: 'softfocus1.png', caption: 'Focus Mode: camera-based attention tracking with colour overlays' },
-        { src: 'softfocus3.png', caption: 'Task list: priority, energy and time-aware task management' },
-        { src: 'softfocus5.png', caption: 'Add task: smart energy matching against how you’re feeling' },
-        { src: 'softfocus2.png', caption: 'Community Pods: matched on what brings you here and the support you want' },
-        { src: 'softfocus4.png', caption: 'Live pod chat: anonymous, ephemeral peer support' }
+        { src: 'softfocus1.png', caption: 'Today: say how your energy is and see the tasks that fit' },
+        { src: 'softfocus2.png', caption: 'Calendar: see how full each day is before adding to it' },
+        { src: 'softfocus3.png', caption: 'Focus: a calm Pomodoro timer, one round at a time' },
+        { src: 'softfocus4.png', caption: 'Life: meals, water, meds and wind-down, with optional reminders' },
+        { src: 'softfocus5.png', caption: 'AI Mentor: talk it through, and it can add tasks and set reminders for you' },
+        { src: 'softfocus6.png', caption: 'Pods: small, anonymous, moderated peer-support rooms' },
+        { src: 'softfocus7.png', caption: 'Onboarding: set it up around you in about a minute' }
       ],
-      intro: 'A cross-platform (iOS, Android, web) wellness companion for neurodivergent students, built and shipped solo end-to-end in a 24-hour hackathon. It combines task management, AI mentorship, anonymous community chat and camera-based focus tracking in one app.',
+      intro: 'A gentle planner for neurodivergent students: ADHD, autism, anxiety, burnout, and every day when getting started is the hard part. It began as a 24-hour solo build at LeedsHack 2026, and I kept going until it was a real product, now published on the App Store. There are no streaks and nothing turns red: unfinished tasks are just "still waiting".',
       points: [
-        'Firebase backend: anonymous authentication for privacy, Firestore for real-time sync and cloud storage for conversation history',
-        'Google Gemini 2.0 Flash with custom prompt engineering, powering an empathetic AI mentor with persistent, tag-personalised memory (ADHD, anxiety, etc.)',
-        'Real-time, ephemeral "Community Pods": anonymous 3–5 person support chats with 24-hour/7-day expiry, built on Firestore listeners',
-        'Presage SDK for camera-based real-time attention tracking with a live focus-percentage graph, plus ElevenLabs for optional text-to-speech',
-        'Solved cross-platform constraints: migrated off Expo Go to a custom development build to support native SDKs, and wrote Firestore security rules for private, deletable history',
-        'Result: fully functional MVP submitted to LeedsHack 2026 and deployed via EAS for public testing'
+        'Energy matching: pick low, mid or high and the Today list shows only the tasks you can realistically do right now',
+        'A calendar that shows how full each day already is, plus a Life tab for everyday basics with reminders at the times you choose',
+        'AI Mentor powered by Gemini through Cloud Functions: it knows your tasks and can add, edit and finish them or set reminders as you talk',
+        'Community Pods: anonymous rooms of up to five people, with message safety checks, report and block, and rooms that close on their own',
+        'Free core app that works without an account, with an optional Pro subscription for the mentor and pods',
+        'Took it through App Store review myself: privacy pages, in-app account deletion, Firestore security rules and the store listing'
       ],
       links: [
+        { label: 'Download on the App Store', href: 'https://apps.apple.com/app/soft-focus-energy-planner/id6815162003', primary: true },
         { label: 'GitHub', href: 'https://github.com/ssubbadongol/energy-app', github: true }
       ]
     },

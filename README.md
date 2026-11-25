@@ -20,7 +20,7 @@ A single self-contained `index.html`: no build step, no framework, no dependenci
 
 - **Strived**: two-sided graduate job marketplace (Next.js, TypeScript, Tailwind CSS)
 - **Tap-In**: offline-first NFC classroom attendance platform (Node.js, Express, SQLite, MIFARE/PC-SC)
-- **Soft Focus**: AI wellness app for neurodivergent students, built solo at LeedsHack 2026 (React Native, Firebase, Gemini 2.0 Flash)
+- **Soft Focus**: energy-based planner for neurodivergent students, started solo at LeedsHack 2026 and now [on the App Store](https://apps.apple.com/app/soft-focus-energy-planner/id6815162003) (React Native, Firebase, Gemini)
 - **Ghost Arena**: wave-survival arena shooter (Godot 4, GDScript, Android)
 - **Smart Plant Monitoring System**: final year IoT project (ESP32, C++, Kotlin, Android)
 
